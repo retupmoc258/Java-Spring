@@ -28,3 +28,7 @@ src/main/resources/about.html
     Copied head tags from mainscreen.html (for universal style)
 
 src/main/resources/mainscreen.html
+    Lines 22-28
+        Added a navigation bar (similar one on about.html)
+
+src/main/java/

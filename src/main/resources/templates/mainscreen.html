@@ -19,6 +19,13 @@
     <h1 style="text-align: center;">Frank's Computer Store</h1>
 
     <hr>
+
+    <div style="display:flex; padding: 10px; margin: 10px; justify-content: space-around">
+        <a th:href="@{/mainscreen}">Home</a>
+        <a th:href="@{/about}">About Us</a>
+    </div>
+
+    <hr>
     <h2>Computer Parts</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
