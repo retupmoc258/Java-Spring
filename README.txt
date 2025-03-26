@@ -31,4 +31,6 @@ src/main/resources/mainscreen.html
     Lines 22-28
         Added a navigation bar (similar one on about.html)
 
-src/main/java/
+src/main/java/com.example.demo/controller/MainScreenControllerr.java
+    Lines 56-59
+        Added navigation control for about.html
