@@ -18,3 +18,13 @@ src/main/resources/mainscreen.html
         Changed "Parts" to "Computer Parts"
     Line 54
         Changed "Products" to "Computers for Sale"
+
+
+D. Add an “About” page to the application to describe your chosen customer’s company to web viewers and include
+navigation to and from the “About” page and the main screen.
+
+src/main/resources/about.html
+    Entire file was added and revised.
+    Copied head tags from mainscreen.html (for universal style)
+
+src/main/resources/mainscreen.html
