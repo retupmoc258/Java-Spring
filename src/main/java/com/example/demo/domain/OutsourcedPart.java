@@ -24,4 +24,9 @@ String companyName;
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+
+    public OutsourcedPart(String name, double price, int inv, String companyName) {
+        super(name, price, inv);
+        this.companyName = companyName;
+    }
 }

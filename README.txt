@@ -45,4 +45,13 @@ cannot be added to your products. When duplicate items are added, make a “mult
 
 src/main/java/com.example.demo/domain/Product.java
     Lines 108-115
-        Implemented new constructor with signature (String name, double price, int inv, Collection<Part> parts)
+        Implemented new constructor for Product with signature (String name, double price, int inv, Collection<Part> parts)
+
+src/main/java/com.example.demo/domain/InhousePart.java
+    Lines 28-31
+        Implemented new constructor for InhousePart with signature (String name, double price, int inv, int partId)
+
+src/main/java/com.example.demo/domain/OutsourcedPart.java
+    Lines 28-31
+        Implemented new constructor for OutsourcedPart with signature (String name, double price, int inv, String companyName)
+
