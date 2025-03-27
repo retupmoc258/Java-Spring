@@ -6,8 +6,7 @@ import com.example.demo.validators.ValidProductPrice;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
@@ -103,5 +102,15 @@ public class Product implements Serializable {
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
+    }
+
+    public Product(String name, double price, int inv, Collection<Part> parts) {
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+
+        if(parts != null) {
+            this.parts.addAll(parts);
+        }
     }
 }
