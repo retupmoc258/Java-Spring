@@ -74,12 +74,14 @@ src/main/java/com.example.demo/controllers/AddProductController.java
 
 src/main/resources/purchaseproductconfirmation.html
     Entire file was added and revised.
-    Copied from confirmationaddproduct.html and then revised on Line 10 (for consistency across the site).
+    Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
+
 
 
 src/main/resources/purchaseproductfailure.html
     Entire file was added and revised.
-    Copied from confirmationaddproduct.html and then revised on Line 10 (for consistency across the site).
+    Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
+
 
 
 
