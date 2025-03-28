@@ -58,3 +58,28 @@ src/main/java/com.example.demo/domain/Product.java
 src/main/java/com.example.demo/DemoApplication.java
     Lines 27-89
         Added a CommandLineRunner to add inventory when the database is empty.
+
+
+F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
+•  The “Buy Now” button must be next to the buttons that update and delete products.
+•  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+•  Display a message that indicates the success or failure of a purchase.
+
+src/main/resources/mainscreen.html
+    Line 93
+        Added HTML code for Buy Now button.
+
+src/main/java/com.example.demo/controllers/AddProductController.java
+    Lines 177-191
+
+src/main/resources/purchaseproductconfirmation.html
+    Entire file was added and revised.
+    Copied from confirmationaddproduct.html and then revised on Line 10 (for consistency across the site).
+
+
+src/main/resources/purchaseproductfailure.html
+    Entire file was added and revised.
+    Copied from confirmationaddproduct.html and then revised on Line 10 (for consistency across the site).
+
+
+
