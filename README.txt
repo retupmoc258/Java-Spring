@@ -56,9 +56,10 @@ src/main/java/com.example.demo/domain/Product.java
         Implemented new addParts method to add parts from a list.
 
 src/main/java/com.example.demo/DemoApplication.java
-    Lines 27-105
+    Lines 27-100
         Added a CommandLineRunner to add inventory when the database is empty.
-        Later refactored to fix issue with product and part lists.
+        Look for PartE.Fix1: Refactored to fix issue with product and part lists (parts were not
+            associated with product before).
 
 
 F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
@@ -72,6 +73,7 @@ src/main/resources/mainscreen.html
 
 src/main/java/com.example.demo/controllers/AddProductController.java
     Lines 177-191
+        Added the code for "Buy Now" to check product inventory and decrement the inventory for purchase.
 
 src/main/resources/purchaseproductconfirmation.html
     Entire file was added and revised.
@@ -80,7 +82,4 @@ src/main/resources/purchaseproductconfirmation.html
 src/main/resources/purchaseproductfailure.html
     Entire file was added and revised.
     Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
-
-
-
 
