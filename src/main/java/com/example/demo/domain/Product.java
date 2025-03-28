@@ -104,13 +104,7 @@ public class Product implements Serializable {
         return (int) (id ^ (id >>> 32));
     }
 
-    public Product(String name, double price, int inv, Collection<Part> parts) {
-        this.name = name;
-        this.price = price;
-        this.inv = inv;
-
-        if(parts != null) {
-            this.parts.addAll(parts);
-        }
+    public void addParts(Collection<Part> parts) {
+        this.parts.addAll(parts);
     }
 }
