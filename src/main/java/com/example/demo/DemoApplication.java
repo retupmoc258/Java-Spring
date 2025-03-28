@@ -13,7 +13,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -60,30 +59,43 @@ public class DemoApplication {
 
 
 			//New Products
+
+			//Lambda function to reduce repetition in code.
+			java.util.function.BiFunction<Product, List<Part>, Boolean> addParts = (product,  partList) -> {
+				try {
+					product.addParts(partList);
+					productService.save(product);
+					for (Part part : partList) {
+						part.getProducts().add(product);
+						partService.save(part);
+					}
+				}
+				catch (Exception e) {
+					System.out.println(e.getMessage());
+					return false;
+				}
+				return true;
+			};
+
 			Product workComputer = new Product("Work Computer", 799.99, 4);
 			productService.save(workComputer);
-			workComputer.addParts(List.of(computerCase, motherboard, memoryStick, averageCPU));
-			productService.save(workComputer);
+			addParts.apply(workComputer, List.of(computerCase, motherboard, memoryStick, averageCPU));
 
 			Product studioComputer = new Product("Studio Computer", 1199.99, 5);
 			productService.save(studioComputer);
-			studioComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU));
-			productService.save(studioComputer);
+			addParts.apply(studioComputer, List.of(computerCase, motherboard, memoryStickPack, midgradeCPU));
 
 			Product basicGameComputer = new Product("Basic Game Computer", 1249.99, 6);
 			productService.save(basicGameComputer);
-			basicGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU, improvedFan));
-			productService.save(basicGameComputer);
+			addParts.apply(basicGameComputer, List.of(computerCase, motherboard, memoryStickPack, midgradeCPU, improvedFan));
 
 			Product ultimateGameComputer = new Product("Ultimate Game Computer", 1699.99, 3);
 			productService.save(ultimateGameComputer);
-			ultimateGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, fastCPU, improvedFan));
-			productService.save(ultimateGameComputer);
+			addParts.apply(ultimateGameComputer, List.of(computerCase, motherboard, memoryStickPack, fastCPU, improvedFan));
 
 			Product workstationComputer = new Product("Workstation Computer", 1099.99, 5);
 			productService.save(workstationComputer);
-			workstationComputer.addParts(List.of(computerCase, motherboard, memoryStick, midgradeCPU));
-			productService.save(workstationComputer);
+			addParts.apply(workstationComputer, List.of(computerCase, motherboard, memoryStick, midgradeCPU));
 
 		};
 	}
