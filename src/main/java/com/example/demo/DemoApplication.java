@@ -1,20 +1,21 @@
 package com.example.demo;
 
 import com.example.demo.domain.InhousePart;
+import com.example.demo.domain.OutsourcedPart;
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.InhousePartRepository;
-import com.example.demo.repositories.OutsourcedPartRepository;
-import com.example.demo.repositories.PartRepository;
-import com.example.demo.repositories.ProductRepository;
-import org.apache.catalina.core.ApplicationContext;
+
+
+import com.example.demo.service.PartService;
+import com.example.demo.service.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+
 
 @SpringBootApplication
 public class DemoApplication {
@@ -24,32 +25,66 @@ public class DemoApplication {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(PartRepository partRepository, ProductRepository productRepository) {
+	CommandLineRunner commandLineRunner(PartService partService, ProductService productService) {
 		return args -> {
 
-			List<Part> parts = (List<Part>) partRepository.findAll();
-			List<Product> products = (List<Product>) productRepository.findAll();
+			List<Part> parts = partService.findAll();
+			List<Product> products = productService.findAll();
 
-			if(parts.isEmpty() && products.isEmpty()) {
-				InhousePart inhousePart = new InhousePart();
-				inhousePart.setName("Computer case");
-				inhousePart.setPrice(12.99);
-				inhousePart.setInv(5);
-				partRepository.save(inhousePart);
+			if(!parts.isEmpty() || !products.isEmpty()) { return;}
+			//If both are empty, run this code:
+			//New Parts
+			InhousePart computerCase = new InhousePart("Computer case", 12.99, 50, 1);
+			partService.save(computerCase);
+
+			OutsourcedPart motherboard = new OutsourcedPart("Motherboard", 119.99, 30, "ASUS");
+			partService.save(motherboard);
+
+			OutsourcedPart memoryStick = new OutsourcedPart("8 GB memory stick", 89.99, 100, "Western Digital");
+			partService.save(memoryStick);
+
+			OutsourcedPart memoryStickPack = new OutsourcedPart("8 GB memory stick (2 pack)", 179.98, 30, "Western Digital");
+			partService.save(memoryStickPack);
+
+			OutsourcedPart averageCPU = new OutsourcedPart("2.5 GHz CPU", 479.99, 60, "AMD");
+			partService.save(averageCPU);
+
+			OutsourcedPart midgradeCPU = new OutsourcedPart("3.0 GHz CPU", 749.99, 60, "AMD");
+			partService.save(midgradeCPU);
+
+			OutsourcedPart fastCPU = new OutsourcedPart("3.5 GHz CPU", 1149.99, 30, "AMD");
+			partService.save(fastCPU);
+
+			InhousePart improvedFan = new InhousePart("Improved Fan", 39.99, 50, 2);
+			partService.save(improvedFan);
 
 
+			//New Products
+			Product workComputer = new Product("Work Computer", 799.99, 4);
+			productService.save(workComputer);
+			workComputer.addParts(List.of(computerCase, motherboard, memoryStick, averageCPU));
+			productService.save(workComputer);
 
-				//New Products
-				//productRepository.save();
-			}
-			//*/
+			Product studioComputer = new Product("Studio Computer", 1199.99, 5);
+			productService.save(studioComputer);
+			studioComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU));
+			productService.save(studioComputer);
 
-			for (Part part : parts) {
-				System.out.println(part);
-			}
-			for (Product product : products) {
-				System.out.println(product);
-			}
+			Product basicGameComputer = new Product("Basic Game Computer", 1249.99, 6);
+			productService.save(basicGameComputer);
+			basicGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU, improvedFan));
+			productService.save(basicGameComputer);
+
+			Product ultimateGameComputer = new Product("Ultimate Game Computer", 1699.99, 3);
+			productService.save(ultimateGameComputer);
+			ultimateGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, fastCPU, improvedFan));
+			productService.save(ultimateGameComputer);
+
+			Product workstationComputer = new Product("Workstation Computer", 1099.99, 5);
+			productService.save(workstationComputer);
+			workstationComputer.addParts(List.of(computerCase, motherboard, memoryStick, midgradeCPU));
+			productService.save(workstationComputer);
+
 		};
 	}
 }

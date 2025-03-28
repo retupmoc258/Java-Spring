@@ -43,10 +43,6 @@ Note: Make sure the sample inventory is added only when both the part and produc
 the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items
 cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 
-src/main/java/com.example.demo/domain/Product.java
-    Lines 108-115
-        Implemented new constructor for Product with signature (String name, double price, int inv, Collection<Part> parts)
-
 src/main/java/com.example.demo/domain/InhousePart.java
     Lines 28-31
         Implemented new constructor for InhousePart with signature (String name, double price, int inv, int partId)
@@ -55,3 +51,10 @@ src/main/java/com.example.demo/domain/OutsourcedPart.java
     Lines 28-31
         Implemented new constructor for OutsourcedPart with signature (String name, double price, int inv, String companyName)
 
+src/main/java/com.example.demo/domain/Product.java
+    Lines 107-109
+        Implemented new addParts method to add parts from a list.
+
+src/main/java/com.example.demo/DemoApplication.java
+    Lines 27-89
+        Added a CommandLineRunner to add inventory when the database is empty.
