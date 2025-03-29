@@ -83,3 +83,18 @@ src/main/resources/purchaseproductfailure.html
     Entire file was added and revised.
     Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
 
+
+G.  Modify the parts to track maximum and minimum inventory by doing the following:
+•  Add additional fields to the part entity for maximum and minimum inventory.
+•  Modify the sample inventory to include the maximum and minimum fields.
+•  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+•  Rename the file the persistent storage is saved to.
+•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+
+src/main/java/com.example.demo/domain/Part.java
+    Lines 31-34
+        Added minInv and maxInv fields to the abstract class.
+    Lines 57-64
+        Added new constructor to include minInv and maxInv
+    Lines 124-138***
+        Added getters and setters for these fields.
