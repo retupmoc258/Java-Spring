@@ -8,7 +8,7 @@ C to J. Each note should include the prompt, file name, line number, and change.
 C. Customize the HTML user interface for your customer’s application. The user interface should include the shop name,
 the product names, and the names of the parts.
 
-src/main/resources/mainscreen.html
+src/main/resources/templates/mainscreen.html
     Line 14
         Changed title to "Frank's Computer Store"
     Line 19
@@ -23,11 +23,11 @@ src/main/resources/mainscreen.html
 D. Add an “About” page to the application to describe your chosen customer’s company to web viewers and include
 navigation to and from the “About” page and the main screen.
 
-src/main/resources/about.html
+src/main/resources/templates/about.html
     Entire file was added and revised.
     Copied head tags from mainscreen.html (for universal style)
 
-src/main/resources/mainscreen.html
+src/main/resources/templates/mainscreen.html
     Lines 22-28
         Added a navigation bar (similar one on about.html)
 
@@ -67,7 +67,7 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
 •  Display a message that indicates the success or failure of a purchase.
 
-src/main/resources/mainscreen.html
+src/main/resources/templates/mainscreen.html
     Line 93
         Added HTML code for Buy Now button.
 
@@ -75,11 +75,11 @@ src/main/java/com.example.demo/controllers/AddProductController.java
     Lines 177-191
         Added the code for "Buy Now" to check product inventory and decrement the inventory for purchase.
 
-src/main/resources/purchaseproductconfirmation.html
+src/main/resources/templates/purchaseproductconfirmation.html
     Entire file was added and revised.
     Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
 
-src/main/resources/purchaseproductfailure.html
+src/main/resources/templates/purchaseproductfailure.html
     Entire file was added and revised.
     Copied from negativeerror.html and then revised on Line 8 (for consistency across the site).
 
@@ -110,3 +110,5 @@ src/main/java/com.example.demo/domain/OutsourcedPart.java
 src/main/java/com.example.demo/DemoApplication.java
     Lines 36, 39. 42. 45, 48, 51. 64. and 57
         Added values for minInv and maxInv to each instantiation.
+
+src/main/resources/templates/
