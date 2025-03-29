@@ -106,3 +106,7 @@ src/main/java/com.example.demo/domain/InhousePart.java
 src/main/java/com.example.demo/domain/OutsourcedPart.java
     Line 33-36
         Added new constructor to include minInv and maxInv.
+
+src/main/java/com.example.demo/DemoApplication.java
+    Lines 36, 39. 42. 45, 48, 51. 64. and 57
+        Added values for minInv and maxInv to each instantiation.
