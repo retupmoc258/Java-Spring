@@ -56,10 +56,11 @@ src/main/java/com.example.demo/domain/Product.java
         Implemented new addParts method to add parts from a list.
 
 src/main/java/com.example.demo/DemoApplication.java
-    Lines 27-100
+    Lines 27-114
         Added a CommandLineRunner to add inventory when the database is empty.
         Look for PartE.Fix1: Refactored to fix issue with product and part lists (parts were not
             associated with product before).
+        Look also for PartE.Fix2: Fixed an issue with parts not being associated with their products.
 
 
 F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
