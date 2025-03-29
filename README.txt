@@ -111,4 +111,10 @@ src/main/java/com.example.demo/DemoApplication.java
     Lines 36, 39. 42. 45, 48, 51. 64. and 57
         Added values for minInv and maxInv to each instantiation.
 
-src/main/resources/templates/
+src/main/resources/templates/InhousePartForm.html
+    Lines 16-52
+        Made a table for form input to improve organization and allow text labels before the inputs
+            (in replacement of placeholders)
+
+src/main/resources/templates/OutsourcedPartForm.html
+

@@ -71,6 +71,7 @@ public class DemoApplication {
 					}
 				}
 				catch (Exception e) {
+					System.out.println("   Error message: ");
 					System.out.println(e.getMessage());
 					return false;
 				}
