@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
+import java.util.Set;
 
 
 @SpringBootApplication
@@ -80,23 +81,54 @@ public class DemoApplication {
 
 			Product workComputer = new Product("Work Computer", 799.99, 4);
 			productService.save(workComputer);
-			addParts.apply(workComputer, List.of(computerCase, motherboard, memoryStick, averageCPU));
+			workComputer.addParts(List.of(computerCase, memoryStick, motherboard, averageCPU));
+			productService.save(workComputer);
 
 			Product studioComputer = new Product("Studio Computer", 1199.99, 5);
 			productService.save(studioComputer);
-			addParts.apply(studioComputer, List.of(computerCase, motherboard, memoryStickPack, midgradeCPU));
+			studioComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU));
+			productService.save(studioComputer);
 
 			Product basicGameComputer = new Product("Basic Game Computer", 1249.99, 6);
 			productService.save(basicGameComputer);
-			addParts.apply(basicGameComputer, List.of(computerCase, motherboard, memoryStickPack, midgradeCPU, improvedFan));
+			basicGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, midgradeCPU, improvedFan));
+			productService.save(basicGameComputer);
 
 			Product ultimateGameComputer = new Product("Ultimate Game Computer", 1699.99, 3);
 			productService.save(ultimateGameComputer);
-			addParts.apply(ultimateGameComputer, List.of(computerCase, motherboard, memoryStickPack, fastCPU, improvedFan));
+			ultimateGameComputer.addParts(List.of(computerCase, motherboard, memoryStickPack, fastCPU, improvedFan));
+			productService.save(ultimateGameComputer);
 
 			Product workstationComputer = new Product("Workstation Computer", 1099.99, 5);
 			productService.save(workstationComputer);
-			addParts.apply(workstationComputer, List.of(computerCase, motherboard, memoryStick, midgradeCPU));
+			workstationComputer.addParts(List.of(computerCase, motherboard, memoryStick, midgradeCPU));
+			productService.save(workstationComputer);
+
+
+			//Add products to parts - do each ONLY one time.
+			computerCase.getProducts().addAll(List.of(workComputer, studioComputer, basicGameComputer, ultimateGameComputer, workstationComputer));
+			partService.save(computerCase);
+
+			motherboard.getProducts().addAll(List.of(workComputer, studioComputer, basicGameComputer, ultimateGameComputer, workstationComputer));
+			partService.save(motherboard);
+
+			memoryStick.getProducts().addAll(List.of(workComputer, workstationComputer));
+			partService.save(memoryStick);
+
+			memoryStickPack.getProducts().addAll(List.of(studioComputer, basicGameComputer, ultimateGameComputer));
+			partService.save(memoryStickPack);
+
+			averageCPU.getProducts().add(workComputer);
+			partService.save(averageCPU);
+
+			midgradeCPU.getProducts().addAll(List.of(studioComputer, basicGameComputer, workstationComputer));
+			partService.save(midgradeCPU);
+
+			fastCPU.getProducts().add(ultimateGameComputer);
+			partService.save(fastCPU);
+
+			improvedFan.getProducts().addAll(List.of(ultimateGameComputer, basicGameComputer));
+			partService.save(improvedFan);
 
 		};
 	}
