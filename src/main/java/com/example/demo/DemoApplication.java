@@ -60,25 +60,6 @@ public class DemoApplication {
 
 
 			//New Products
-
-			//Lambda function to reduce repetition in code.
-			java.util.function.BiFunction<Product, List<Part>, Boolean> addParts = (product,  partList) -> {
-				try {
-					product.addParts(partList);
-					productService.save(product);
-					for (Part part : partList) {
-						part.getProducts().add(product);
-						partService.save(part);
-					}
-				}
-				catch (Exception e) {
-					System.out.println("   Error message: ");
-					System.out.println(e.getMessage());
-					return false;
-				}
-				return true;
-			};
-
 			Product workComputer = new Product("Work Computer", 799.99, 4);
 			productService.save(workComputer);
 			workComputer.addParts(List.of(computerCase, memoryStick, motherboard, averageCPU));
