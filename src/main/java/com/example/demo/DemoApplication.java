@@ -33,28 +33,28 @@ public class DemoApplication {
 			if(!parts.isEmpty() || !products.isEmpty()) { return;}
 			//If both are empty, run this code:
 			//New Parts
-			InhousePart computerCase = new InhousePart("Computer case", 12.99, 50, 1);
+			InhousePart computerCase = new InhousePart("Computer case", 12.99, 50, 1, 2, 100);
 			partService.save(computerCase);
 
-			OutsourcedPart motherboard = new OutsourcedPart("Motherboard", 119.99, 30, "ASUS");
+			OutsourcedPart motherboard = new OutsourcedPart("Motherboard", 119.99, 30, "ASUS", 2, 100);
 			partService.save(motherboard);
 
-			OutsourcedPart memoryStick = new OutsourcedPart("8 GB memory stick", 89.99, 100, "Western Digital");
+			OutsourcedPart memoryStick = new OutsourcedPart("8 GB memory stick", 89.99, 100, "Western Digital", 2, 100);
 			partService.save(memoryStick);
 
-			OutsourcedPart memoryStickPack = new OutsourcedPart("8 GB memory stick (2 pack)", 179.98, 30, "Western Digital");
+			OutsourcedPart memoryStickPack = new OutsourcedPart("8 GB memory stick (2 pack)", 179.98, 30, "Western Digital", 0, 30);
 			partService.save(memoryStickPack);
 
-			OutsourcedPart averageCPU = new OutsourcedPart("2.5 GHz CPU", 479.99, 60, "AMD");
+			OutsourcedPart averageCPU = new OutsourcedPart("2.5 GHz CPU", 479.99, 60, "AMD", 1, 40);
 			partService.save(averageCPU);
 
-			OutsourcedPart midgradeCPU = new OutsourcedPart("3.0 GHz CPU", 749.99, 60, "AMD");
+			OutsourcedPart midgradeCPU = new OutsourcedPart("3.0 GHz CPU", 749.99, 60, "AMD", 1, 40);
 			partService.save(midgradeCPU);
 
-			OutsourcedPart fastCPU = new OutsourcedPart("3.5 GHz CPU", 1149.99, 30, "AMD");
+			OutsourcedPart fastCPU = new OutsourcedPart("3.5 GHz CPU", 1149.99, 30, "AMD", 1, 40);
 			partService.save(fastCPU);
 
-			InhousePart improvedFan = new InhousePart("Improved Fan", 39.99, 50, 2);
+			InhousePart improvedFan = new InhousePart("Improved Fan", 39.99, 50, 2, 5, 100);
 			partService.save(improvedFan);
 
 
