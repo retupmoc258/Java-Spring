@@ -29,4 +29,9 @@ String companyName;
         super(name, price, inv);
         this.companyName = companyName;
     }
+
+    public OutsourcedPart(String name, double price, int inv, String companyName, int minInv, int maxInv) {
+        super(name, price, inv, minInv, maxInv);
+        this.companyName = companyName;
+    }
 }

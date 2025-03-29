@@ -95,6 +95,14 @@ src/main/java/com.example.demo/domain/Part.java
     Lines 31-34
         Added minInv and maxInv fields to the abstract class.
     Lines 57-64
-        Added new constructor to include minInv and maxInv
+        Added new constructor to include minInv and maxInv.
     Lines 124-138***
         Added getters and setters for these fields.
+
+src/main/java/com.example.demo/domain/InhousePart.java
+    Line 33-36
+        Added new constructor to include minInv and maxInv.
+
+src/main/java/com.example.demo/domain/OutsourcedPart.java
+    Line 33-36
+        Added new constructor to include minInv and maxInv.

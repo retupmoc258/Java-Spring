@@ -29,4 +29,9 @@ public class InhousePart extends Part{
         super(name, price, inv);
         this.setPartId(partId);
     }
+
+    public InhousePart(String name, double price, int inv, int partId, int minInv, int maxInv) {
+        super(name, price, inv, minInv, maxInv);
+        this.setPartId(partId);
+    }
 }
