@@ -146,3 +146,8 @@ src/main/java/com.example.demo/validators/MaxInvValidator.java
             proceeds to check that the max field value is greater than the dependent (minimum) value.
         I learned that this validator had to be implemented on the class level so that it could access
             both fields.
+
+src/main/java/com.example.demo/controllers/AddInhousePartController.java
+    Lines 45-54
+        Organized code into a more-readable format.
+
