@@ -9,20 +9,53 @@
 <body>
 <h1>Outsourced Part Detail</h1>
 
-<form action="#" th:action="@{/showFormAddOutPart}" th:object="${outsourcedpart}" method="POST"}>
+<form action="#" th:action="@{/showFormAddOutPart}" th:object="${outsourcedpart}" method="POST">
 
 <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
 
-<p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
-
-<p><input type="text" th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
-    <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p>
-
-<p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
-    <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
-
-    <p><input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4 col-4"/></p>
+    <table>
+        <!--
+        <tr>
+            <th>Label</th>
+            <th>Input</th>
+            <th>Errors</th>
+        </tr>
+        -->
+        <tr>
+            <td>Part name: </td>
+            <td><input type="text" th:field="*{name}" class="form-control mb-4 col-4"/></td>
+        </tr>
+        <tr>
+            <td>Part price: </td>
+            <td><input type="text" path="price" th:field="*{price}" class="form-control mb-4 col-4"/></td>
+            <td><p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</p></td>
+        </tr>
+        <tr>
+            <td>Part inventory: </td>
+            <td><input type="text" path="inv" th:field="*{inv}" class="form-control mb-4 col-4"/></td>
+            <td><p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p></td>
+        </tr>
+        <tr>
+            <td>Company name: </td>
+            <td><input type="text" th:field="*{companyName}" class="form-control mb-4 col-4"/></td>
+        </tr>
+        <tr>
+            <td>Minimum inventory: </td>
+            <td><input type="text" th:field="*{minInv}" class="form-control mb-4 col-4"/></td>
+            <td><p th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Inventory Error</p></td>
+        </tr>
+        <tr>
+            <td>Maximum inventory: </td>
+            <td><input type="text" th:field="*{maxInv}" class="form-control mb-4 col-4"/></td>
+            <td><p th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Inventory Error</p></td>
+        </tr>
+    </table>
+<div th:if="${#fields.hasGlobalErrors()}">
+    <ul>
+        <li th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+    </ul>
+</div>
 
 <p><input type="submit" value="Submit" /></p>
 </form>

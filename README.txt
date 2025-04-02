@@ -122,17 +122,21 @@ src/main/resources/templates/InhousePartForm.html
         Made a table for form input to improve organization and allow text labels before the inputs
             (in replacement of placeholders)
     Lines 53-57
-        Added a catch for the validator error on Part (described in MaxInvValidator).
+        Added a catch for the validator error on Part (MaxInvValidator, see below).
 
 src/main/resources/templates/OutsourcedPartForm.html
     Lines 16-53
         Made a table for form input to improve organization and allow text labels before the inputs
             (in replacement of placeholders)
+    Lines 54-58
+        Added a catch for the validator error on Part (MaxInvValidator, see below).
 
 src/main/java/com.example.demo/validators/ValidMaxInv.java
     Entire file
         Created with some help from Google's Generative AI.  I wanted to find a way to put a constraint on
             the maximum inventory value so that it must be greater than the minimum inventory value.
+            Otherwise, potential code could be boxed into an impossible situation (e.g., when all values are
+            either less than the minimum or greater than the maximum).
 
 src/main/java/com.example.demo/validators/MaxInvValidator.java
     Entire file
