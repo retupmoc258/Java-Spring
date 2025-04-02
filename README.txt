@@ -93,12 +93,17 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
 src/main/java/com.example.demo/domain/Part.java
-    Lines 31-34
+    Lines 33-36
         Added minInv and maxInv fields to the abstract class.
-    Lines 57-64
+        Added minimum value validator for minimum inventory (set to 0 minimum).
+        Added minimum value validator for maximum inventory (set to 1 minimum).
+    Lines 59-65
         Added new constructor to include minInv and maxInv.
-    Lines 124-138***
+    Lines 125-139
         Added getters and setters for these fields.
+    Line 23
+        Added a ValidMaxInv custom validator to ensure that the maximum inventory value is greater
+            than the minimum inventory value (see below for new files related to this validator)
 
 src/main/java/com.example.demo/domain/InhousePart.java
     Line 33-36
@@ -109,13 +114,31 @@ src/main/java/com.example.demo/domain/OutsourcedPart.java
         Added new constructor to include minInv and maxInv.
 
 src/main/java/com.example.demo/DemoApplication.java
-    Lines 36, 39. 42. 45, 48, 51. 64. and 57
+    Lines 36, 39. 42. 45, 48, 51, 64, and 57
         Added values for minInv and maxInv to each instantiation.
 
 src/main/resources/templates/InhousePartForm.html
     Lines 16-52
         Made a table for form input to improve organization and allow text labels before the inputs
             (in replacement of placeholders)
+    Lines 53-57
+        Added a catch for the validator error on Part (described in MaxInvValidator).
 
 src/main/resources/templates/OutsourcedPartForm.html
+    Lines 16-53
+        Made a table for form input to improve organization and allow text labels before the inputs
+            (in replacement of placeholders)
 
+src/main/java/com.example.demo/validators/ValidMaxInv.java
+    Entire file
+        Created with some help from Google's Generative AI.  I wanted to find a way to put a constraint on
+            the maximum inventory value so that it must be greater than the minimum inventory value.
+
+src/main/java/com.example.demo/validators/MaxInvValidator.java
+    Entire file
+        Created with some help from Google's Generative AI.  This file implements the logic for the
+            validator.
+        Validator obtains the indicated fields of the class object, checks if either is null, then
+            proceeds to check that the max field value is greater than the dependent (minimum) value.
+        I learned that this validator had to be implemented on the class level so that it could access
+            both fields.

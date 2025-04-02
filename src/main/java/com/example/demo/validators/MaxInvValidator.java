@@ -28,7 +28,8 @@ public class MaxInvValidator implements ConstraintValidator<ValidMaxInv, Object>
                 return ((Number) maxFieldValue).intValue() > ((Number) dependentFieldValue).intValue();
             } else {
                 context.disableDefaultConstraintViolation();
-                context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate()).addPropertyNode("maxInv").addConstraintViolation();
+                context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
+                        .addPropertyNode("maxInvReq").addConstraintViolation();
                 return false;
             }
         } catch (Exception e) {

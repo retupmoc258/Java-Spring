@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import com.example.demo.validators.ValidMaxInv;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
+@ValidMaxInv(maxFieldName = "maxInv", dependentFieldName = "minInv", message = "The maximum inventory value must be greater than the minimum inventory value")
 public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,9 +30,9 @@ public abstract class Part implements Serializable {
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
-
+    @Min(value = 0, message = "Minimum value must be 0 or greater")
     int minInv;
-
+    @Min(value = 1, message = "Maximum inventory must be 1 or greater")
     int maxInv;
 
     @ManyToMany
