@@ -171,3 +171,7 @@ src/main/java/com.example.demo/validators/ValidGreaterThanFields.java
         Created this file to allow the @ValidGreaterThanField validator to be used multiple times.
         Contains an array of @ValidGreaterThanField objects.
 
+src/main/java/com.example.demo/domain/Part.java (again)
+    Lines 23-25
+        Added @ValidGreaterThanField constraints to Part class to enforce a maximum and minimum
+            inventory values while editing the Part details.
