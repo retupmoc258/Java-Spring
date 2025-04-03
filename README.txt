@@ -179,3 +179,7 @@ src/main/java/com.example.demo/domain/Part.java (again)
 src/main/java/com.example.demo/validators/EnufPartsValidator.java
     Lines 31-42
         Reformatted for clarity to Lines 30-39
+THEN
+    Lines 29, 33-36
+        Renamed "product" and "myProduct" to "newProduct" and "savedProduct" to indicate better
+            ordering to help with comprehension (I was too confused).
