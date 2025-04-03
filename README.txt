@@ -183,3 +183,6 @@ THEN
     Lines 29, 33-36
         Renamed "product" and "myProduct" to "newProduct" and "savedProduct" to indicate better
             ordering to help with comprehension (I was too confused).
+THEN
+    Line 36
+        Added logic to compare inventory after change to minimum inventory.
