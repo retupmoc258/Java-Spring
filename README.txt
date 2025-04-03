@@ -191,3 +191,68 @@ src/main/java/com.example.demo/DemoApplication.java
     Lines 49, 52
         I had implemented sample OutsourcedParts that violated their own constraints.  This was causing
             A runtime error when the Product increase executed.
+
+H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
+•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+    Sorry, I misunderstood what was wanted with "Modify the code to enforce that the inventory is between or
+    at the minimum and maximum value."  I assumed this was for both Parts and Products.  Looking at Part H,
+    it appears that I was only supposed to focus on Products for Part G.  However, my work for Part G also
+    accomplished this requirement for Part H.  Here's a recap of what I changed:
+
+src/main/java/com.example.demo/validators/ValidGreaterThanField.java
+    Entire file
+        Created with some help from Google's Generative AI.  I wanted to find a way to put a constraint on
+            the maximum inventory value so that it must be greater than the minimum inventory value.
+            Otherwise, potential code could be boxed into an impossible situation (e.g., when all values are
+            either less than the minimum or greater than the maximum).
+    Renamed as "ValidGreaterThanField"
+    Line 19
+        Added "strictlyGreater" modifier to make validator more general.
+    LATER Line 10
+        Added a @Repeatable annotation to allow field to be reused.
+
+src/main/java/com.example.demo/validators/GreaterThanValidator.java
+    Entire file
+        Created with some help from Google's Generative AI.  This file implements the logic for the
+            validator.
+        Validator obtains the indicated fields of the class object, checks if either is null, then
+            proceeds to check that the max field value is greater than the dependent (minimum) value.
+        I learned that this validator had to be implemented on the class level so that it could access
+            both fields.
+    After renaming ValidMaxInv annotation, renamed validator to "GreaterThanValidator"
+    Line 8
+        Changed the validator to "ValidGreaterThanField"
+    Line 17
+        Added new field to match implementation.
+    Lines 30-34
+        Expanded validation check to allow for "strictly greater" or "greater than or equal".
+    Line 38
+        Made the constraint violation add a property that was custom to the class and field
+            (for use among several classes).
+
+src/main/java/com.example.demo/domain/Part.java (again)
+    Lines 23-25
+        Added @ValidGreaterThanField constraints to Part class to enforce a maximum and minimum
+            inventory values while editing the Part details.
+    Line 24
+        H.1 - This validator displays an error message when you add or update a part and the inventory
+            is less than the minimum value.
+    Line 25
+        H.3 - This validator displays an error message when you add or update a part and the inventory
+            is greater than the maximum value.
+
+src/main/java/com.example.demo/validators/EnufPartsValidator.java
+    Lines 31-42
+        Reformatted for clarity to Lines 30-39
+THEN
+    Lines 29, 33-36
+        Renamed "product" and "myProduct" to "newProduct" and "savedProduct" to indicate better
+            ordering to help with comprehension (I was too confused).
+THEN
+    Line 36
+        H.2 Added logic to compare inventory after change to minimum inventory.  Gives an error that there
+            are not enough parts to add to the Product inventory if the new value is below the minimum.
+
