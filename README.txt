@@ -140,6 +140,8 @@ src/main/java/com.example.demo/validators/ValidGreaterThanField.java
     Renamed as "ValidGreaterThanField"
     Line 19
         Added "strictlyGreater" modifier to make validator more general.
+    LATER Line 10
+        Added a @Repeatable annotation to allow field to be reused.
 
 src/main/java/com.example.demo/validators/GreaterThanValidator.java
     Entire file
@@ -163,3 +165,9 @@ src/main/java/com.example.demo/validators/GreaterThanValidator.java
 src/main/java/com.example.demo/controllers/AddInhousePartController.java
     Lines 45-54
         Organized code into a more-readable format.
+
+src/main/java/com.example.demo/validators/ValidGreaterThanFields.java
+    Entire file
+        Created this file to allow the @ValidGreaterThanField validator to be used multiple times.
+        Contains an array of @ValidGreaterThanField objects.
+
