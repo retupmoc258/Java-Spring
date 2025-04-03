@@ -9,11 +9,12 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {MaxInvValidator.class})
-public @interface ValidMaxInv {
+@Constraint(validatedBy = {GreaterThanValidator.class})
+public @interface ValidGreaterThanField {
     String message() default "Field value must be more than the dependent value";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-    String maxFieldName();
+    String greaterFieldName();
     String dependentFieldName();
+    boolean strictlyGreater() default true;
 }

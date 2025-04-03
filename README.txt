@@ -131,14 +131,17 @@ src/main/resources/templates/OutsourcedPartForm.html
     Lines 54-58
         Added a catch for the validator error on Part (MaxInvValidator, see below).
 
-src/main/java/com.example.demo/validators/ValidMaxInv.java
+src/main/java/com.example.demo/validators/ValidGreaterThanField.java
     Entire file
         Created with some help from Google's Generative AI.  I wanted to find a way to put a constraint on
             the maximum inventory value so that it must be greater than the minimum inventory value.
             Otherwise, potential code could be boxed into an impossible situation (e.g., when all values are
             either less than the minimum or greater than the maximum).
+    Renamed as "ValidGreaterThanField"
+    Line 19
+        Added "strictlyGreater" modifier to make validator more general.
 
-src/main/java/com.example.demo/validators/MaxInvValidator.java
+src/main/java/com.example.demo/validators/GreaterThanValidator.java
     Entire file
         Created with some help from Google's Generative AI.  This file implements the logic for the
             validator.
@@ -146,8 +149,17 @@ src/main/java/com.example.demo/validators/MaxInvValidator.java
             proceeds to check that the max field value is greater than the dependent (minimum) value.
         I learned that this validator had to be implemented on the class level so that it could access
             both fields.
+    After renaming ValidMaxInv annotation, renamed validator to "GreaterThanValidator"
+    Line 8
+        Changed the validator to "ValidGreaterThanField"
+    Line 17
+        Added new field to match implementation.
+    Lines 30-34
+        Expanded validation check to allow for "strictly greater" or "greater than or equal".
+    Line 38
+        Made the constraint violation add a property that was custom to the class and field
+            (for use among several classes).
 
 src/main/java/com.example.demo/controllers/AddInhousePartController.java
     Lines 45-54
         Organized code into a more-readable format.
-
