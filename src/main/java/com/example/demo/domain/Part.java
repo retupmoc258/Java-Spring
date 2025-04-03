@@ -21,6 +21,8 @@ import java.util.Set;
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
 @ValidGreaterThanField(greaterFieldName = "maxInv", dependentFieldName = "minInv", strictlyGreater = true, message = "The maximum inventory value must be greater than the minimum inventory value")
+@ValidGreaterThanField(greaterFieldName = "inv", dependentFieldName = "minInv", strictlyGreater = false, message = "The inventory must be greater than or equal to the minimum inventory.")
+@ValidGreaterThanField(greaterFieldName = "maxInv", dependentFieldName = "inv", strictlyGreater = false, message = "The inventory must be less than or equal to the maximum inventory.")
 public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
