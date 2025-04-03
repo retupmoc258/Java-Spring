@@ -46,10 +46,10 @@ public class DemoApplication {
 			OutsourcedPart memoryStickPack = new OutsourcedPart("8 GB memory stick (2 pack)", 179.98, 30, "Western Digital", 0, 30);
 			partService.save(memoryStickPack);
 
-			OutsourcedPart averageCPU = new OutsourcedPart("2.5 GHz CPU", 479.99, 60, "AMD", 1, 40);
+			OutsourcedPart averageCPU = new OutsourcedPart("2.5 GHz CPU", 479.99, 30, "AMD", 1, 40);
 			partService.save(averageCPU);
 
-			OutsourcedPart midgradeCPU = new OutsourcedPart("3.0 GHz CPU", 749.99, 60, "AMD", 1, 40);
+			OutsourcedPart midgradeCPU = new OutsourcedPart("3.0 GHz CPU", 749.99, 30, "AMD", 1, 40);
 			partService.save(midgradeCPU);
 
 			OutsourcedPart fastCPU = new OutsourcedPart("3.5 GHz CPU", 1149.99, 30, "AMD", 1, 40);

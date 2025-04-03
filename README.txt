@@ -186,3 +186,8 @@ THEN
 THEN
     Line 36
         Added logic to compare inventory after change to minimum inventory.
+
+src/main/java/com.example.demo/DemoApplication.java
+    Lines 49, 52
+        I had implemented sample OutsourcedParts that violated their own constraints.  This was causing
+            A runtime error when the Product increase executed.
