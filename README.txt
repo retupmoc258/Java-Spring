@@ -175,3 +175,7 @@ src/main/java/com.example.demo/domain/Part.java (again)
     Lines 23-25
         Added @ValidGreaterThanField constraints to Part class to enforce a maximum and minimum
             inventory values while editing the Part details.
+
+src/main/java/com.example.demo/validators/EnufPartsValidator.java
+    Lines 31-42
+        Reformatted for clarity to Lines 30-39
