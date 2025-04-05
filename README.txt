@@ -263,3 +263,8 @@ src/test/java/com.example.demo/domain/PartTest.java
     Lines 160-174
         Added a testMinInv test and testMaxInv test.
     Ran the tests successfully.
+
+
+J.  Remove the class files for any unused validators in order to clean your code.
+
+    Checked each validator, and they are all used in the program.  Did not remove any validators.
