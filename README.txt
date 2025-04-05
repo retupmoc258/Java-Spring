@@ -256,3 +256,10 @@ THEN
         H.2 Added logic to compare inventory after change to minimum inventory.  Gives an error that there
             are not enough parts to add to the Product inventory if the new value is below the minimum.
 
+
+I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+
+src/test/java/com.example.demo/domain/PartTest.java
+    Lines 160-174
+        Added a testMinInv test and testMaxInv test.
+    Ran the tests successfully.
