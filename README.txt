@@ -267,4 +267,12 @@ src/test/java/com.example.demo/domain/PartTest.java
 
 J.  Remove the class files for any unused validators in order to clean your code.
 
-    Checked each validator, and they are all used in the program.  Did not remove any validators.
+src/main/java/com.example.demo/domain/Part.java
+    Line 18
+        Removed @ValidDeletePart annotation because it doesn't do anything.
+
+src/main/java/com.example.demo/validators/ValidDeletePart.java
+    Deleted file because it is not used.
+
+src/main/java/com.example.demo/validators/DeletePartValidator.java
+    Deleted file because it is not used.
